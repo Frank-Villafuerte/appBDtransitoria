@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Aplicacion</string>
+    <string name="iniciar">Iniciar Aplicacion</string>
+    //botones de pantalla principal
+    <string name="adicion">Adicion</string>
+    <string name="modificacion">Modificacion</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="inactivar">Inactivar</string>
+    <string name="reactivar">Reactivar</string>
+    <string name="salir">Salir</string>
+
+    //fragment datos
+    <string name="dummy">Dummy</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="descripcion">Imagen representativa de la empresa</string>
+
+    <string name="mision">MISION</string>
+    <string name="vision">VISION</string>
+
+
+</resources>
