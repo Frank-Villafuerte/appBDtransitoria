@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Crea un Intent para iniciar la Actividad2
-                Intent intent = new Intent(MainActivity.this, Lista.class);
+                Intent intent = new Intent(MainActivity.this, ListaDatos.class);
                 // Inicia la nueva actividad
                 startActivity(intent);
             }

@@ -71,7 +71,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:contentDescription="@string/descripcion"
-            android:src="@tools:sample/avatars"
+            tools:src="@tools:sample/avatars"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
