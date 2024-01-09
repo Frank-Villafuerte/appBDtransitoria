@@ -21,11 +21,12 @@
         >
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/logo"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,46 +38,53 @@
                 android:id="@+id/ruc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/dummy"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:text="@string/dummy" />
+
             <TextView
                 android:id="@+id/direccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/dummy"
                 android:layout_margin="10dp"
-                />
+                android:text="@string/dummy" />
 
             <TextView
                 android:id="@+id/mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/dummy"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:text="@string/dummy" />
 
             <TextView
                 android:id="@+id/telefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/dummy"
-                android:layout_margin="10dp"/>
-
-
+                android:layout_margin="10dp"
+                android:text="@string/dummy" />
 
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/logo"
+        <FrameLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/descripcion"
-            tools:src="@tools:sample/avatars"
-
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="1.0"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout2"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.4" />
+            app:layout_constraintWidth_percent="0.4">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/descripcion"
+                android:src="@drawable/activo"
+
+                app:layout_constraintWidth_percent="0.4" />
+        </FrameLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

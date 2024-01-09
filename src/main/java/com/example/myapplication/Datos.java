@@ -11,7 +11,7 @@ import android.widget.Button;
 
 
 public class Datos extends Fragment {
-    Button aceptar;
+    Button aceptar, cancelar;
 
     public Datos() {
         // Required empty public constructor
@@ -28,8 +28,15 @@ public class Datos extends Fragment {
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_datos, container, false);
         aceptar = view.findViewById(R.id.aceptar);
-
+        cancelar=view.findViewById(R.id.cancelar);
         aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((ListaDatos) requireActivity()).cargarFragment(new Lista(),false);
+                //
+            }
+        });
+        cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((ListaDatos) requireActivity()).cargarFragment(new Lista(),false);
