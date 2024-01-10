@@ -5,7 +5,9 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-public class Empresa /*implements Parcelable */{
+import java.io.Serializable;
+
+public class Empresa implements Serializable/*implements Parcelable */{
     private String razon;
     private int ruc;
     private String direccion;
