@@ -8,6 +8,10 @@
     <string name="inactivar">Inactivar</string>
     <string name="reactivar">Reactivar</string>
     <string name="salir">Salir</string>
+    //LABELS
+    <string name="codigo_label">Código</string>
+    <string name="ruc_label">RUC</string>
+    <string name="razon_label">Razón Social</string>
 
     //fragment datos
     <string name="dummy">Dummy</string>

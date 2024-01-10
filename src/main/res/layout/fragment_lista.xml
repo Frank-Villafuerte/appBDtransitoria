@@ -5,10 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".fragments.Lista">
+
+
+    <TextView
+        android:id="@+id/codigoL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/codigo_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rucL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ruc_label"
+        app:layout_constraintEnd_toStartOf="@+id/razonL"
+        app:layout_constraintStart_toEndOf="@+id/codigoL"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/razonL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/razon_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView2"
+        android:id="@+id/recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
@@ -34,62 +60,69 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView2"
-        app:layout_constraintVertical_bias="1.0"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/recycler"
+        app:layout_constraintVertical_bias="1.0">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="100dp">
 
             <Button
                 android:id="@+id/agregar"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/adicion" />
+                android:text="@string/adicion"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.3"/>
 
             <Button
                 android:id="@+id/modificar"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/modificacion" />
+                android:text="@string/modificacion"
+                app:layout_constraintEnd_toStartOf="@+id/eliminar"
+                app:layout_constraintStart_toEndOf="@+id/agregar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.35"/>
 
             <Button
                 android:id="@+id/eliminar"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/eliminar" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
+                android:text="@string/eliminar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.3"/>
             <Button
                 android:id="@+id/inactivar"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/inactivar" />
+                android:text="@string/inactivar"
+                app:layout_constraintTop_toBottomOf="@id/agregar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.3"/>
 
             <Button
                 android:id="@+id/reactivar"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/reactivar" />
+                android:text="@string/reactivar"
+                app:layout_constraintStart_toEndOf="@id/inactivar"
+                app:layout_constraintEnd_toStartOf="@id/salir"
+                app:layout_constraintTop_toBottomOf="@id/modificar"
+                app:layout_constraintWidth_percent="0.35"/>
 
             <Button
                 android:id="@+id/salir"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/salir" />
-        </LinearLayout>
+                android:text="@string/salir"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/eliminar"
+                app:layout_constraintWidth_percent="0.3"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:theme="@style/ThemeOverlay.MyApplication.FullscreenContainer"
-    tools:context=".Datos">
+    tools:context=".fragments.Datos">
 
     <TextView
         android:id="@+id/nombre"

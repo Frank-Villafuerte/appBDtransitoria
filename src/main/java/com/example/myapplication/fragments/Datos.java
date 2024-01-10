@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.fragments;
 
 import android.os.Bundle;
 
@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.myapplication.activity.ListaDatos;
+import com.example.myapplication.R;
 
 
 public class Datos extends Fragment {
