@@ -11,19 +11,8 @@ import com.example.myapplication.R;
 import com.example.myapplication.clases.Empresa;
 import com.example.myapplication.fragments.Lista;
 import com.example.myapplication.gestorBD.ApiService;
-import com.example.myapplication.gestorBD.RecibirDatos;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONTokener;
-
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.JsonNode;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,7 +27,6 @@ public class ListaDatos extends AppCompatActivity {
     String datos;
     Lista fragLista;
     Bundle bundle;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,10 +35,7 @@ public class ListaDatos extends AppCompatActivity {
         bundle=new Bundle();
         getPost();
         Log.d("log","bundle vaciopre "+bundle.isEmpty());
-
         Log.d("log","bundle vacio"+bundle.isEmpty());
-
-
     }
     public void  getPost(){
         Retrofit retrofit = new Retrofit.Builder()
@@ -71,19 +56,14 @@ public class ListaDatos extends AppCompatActivity {
                     respuesta=respuesta.replace("null","0");
                     respuesta=respuesta.replace("\"\"","\"vacio\"");
                     bundle.putString("info",respuesta);
-                    fragLista.setArguments(bundle);
-                    cargarFragment(fragLista, false);
+                    cargarFragment(fragLista, false, bundle);
                     Log.d("NetworkTask","Exito: " +respuesta);
                     Log.d("log","tamanio on response: : " +respuesta.length());
-
                 }
                 else{
                     Log.d("NetworkTask","Fallo");
-
                 }
-
             }
-
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Log.d("NetworkTask","Fallo total "+t.getMessage());
@@ -93,7 +73,10 @@ public class ListaDatos extends AppCompatActivity {
 
 
     }
-    public void cargarFragment(Fragment fragment, boolean volver) {
+    public void cargarFragment(Fragment fragment, boolean volver, Bundle bundle) {
+        if (!bundle.isEmpty()){
+            fragment.setArguments(bundle);
+        }
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragmento, fragment);
         if (volver) {
@@ -101,6 +84,12 @@ public class ListaDatos extends AppCompatActivity {
         }
         transaction.commit();
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+
 
 
 

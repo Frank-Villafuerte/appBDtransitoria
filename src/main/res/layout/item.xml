@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:animateLayoutChanges="true">
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="1dp"
+    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="@color/p1"
+    >
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="6dp">
+            android:padding="4dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="2dp">
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp">
 
                 <TextView
                     android:id="@+id/elemento1"
@@ -36,9 +37,11 @@
                     android:layout_height="wrap_content"
                     android:text="TextView"
                     android:textAlignment="center"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_percent="0.3" />
+                    app:layout_constraintWidth_percent="0.2" />
 
                 <TextView
                     android:id="@+id/elemento2"
@@ -46,10 +49,12 @@
                     android:layout_height="wrap_content"
                     android:text="TextView"
                     android:textAlignment="center"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     app:layout_constraintEnd_toStartOf="@+id/elemento3"
                     app:layout_constraintStart_toEndOf="@+id/elemento1"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_percent="0.3" />
+                    app:layout_constraintWidth_percent="0.2" />
 
                 <TextView
                     android:id="@+id/elemento3"
@@ -57,10 +62,13 @@
                     android:layout_height="wrap_content"
                     android:text="TextView"
                     android:textAlignment="center"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_percent="0.3" />
+                    app:layout_constraintWidth_percent="0.6"
+                    />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </RelativeLayout>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

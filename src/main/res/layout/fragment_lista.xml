@@ -8,30 +8,60 @@
     tools:context=".fragments.Lista">
 
 
-    <TextView
-        android:id="@+id/codigoL"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/codigo_label"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/rucL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ruc_label"
-        app:layout_constraintEnd_toStartOf="@+id/razonL"
-        app:layout_constraintStart_toEndOf="@+id/codigoL"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/razonL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/razon_label"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/recycler"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="1.0">
+
+        <TextView
+            android:id="@+id/codigoL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/p6"
+            android:text="@string/codigo_label"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.2" />
+
+        <TextView
+            android:id="@+id/rucL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:background="@color/p6"
+            android:text="@string/ruc_label"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/razonL"
+            app:layout_constraintStart_toEndOf="@+id/codigoL"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.2" />
+
+        <TextView
+            android:id="@+id/razonL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/p6"
+            android:text="@string/razon_label"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.6" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
@@ -39,90 +69,75 @@
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHeight_percent="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.9"
-        app:layout_constraintHeight_percent="0.7"
-        app:layout_constraintBottom_toTopOf="@id/linearLayout"/>
+        app:layout_constraintWidth_percent="1" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingStart="5dp"
-        android:paddingLeft="5dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="5dp"
-        android:paddingRight="5dp"
-        android:paddingBottom="5dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/recycler">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp">
+        <Button
+            android:id="@+id/agregar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/adicion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.3" />
 
-            <Button
-                android:id="@+id/agregar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/adicion"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.3"/>
+        <Button
+            android:id="@+id/modificar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/modificacion"
+            app:layout_constraintEnd_toStartOf="@+id/eliminar"
+            app:layout_constraintStart_toEndOf="@+id/agregar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.35" />
 
-            <Button
-                android:id="@+id/modificar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/modificacion"
-                app:layout_constraintEnd_toStartOf="@+id/eliminar"
-                app:layout_constraintStart_toEndOf="@+id/agregar"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.35"/>
+        <Button
+            android:id="@+id/eliminar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/eliminar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.3" />
 
-            <Button
-                android:id="@+id/eliminar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/eliminar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.3"/>
-            <Button
-                android:id="@+id/inactivar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/inactivar"
-                app:layout_constraintTop_toBottomOf="@id/agregar"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintWidth_percent="0.3"/>
+        <Button
+            android:id="@+id/inactivar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/inactivar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/agregar"
+            app:layout_constraintWidth_percent="0.3" />
 
-            <Button
-                android:id="@+id/reactivar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/reactivar"
-                app:layout_constraintStart_toEndOf="@id/inactivar"
-                app:layout_constraintEnd_toStartOf="@id/salir"
-                app:layout_constraintTop_toBottomOf="@id/modificar"
-                app:layout_constraintWidth_percent="0.35"/>
+        <Button
+            android:id="@+id/reactivar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/reactivar"
+            app:layout_constraintEnd_toStartOf="@id/salir"
+            app:layout_constraintStart_toEndOf="@id/inactivar"
+            app:layout_constraintTop_toBottomOf="@id/modificar"
+            app:layout_constraintWidth_percent="0.35" />
 
-            <Button
-                android:id="@+id/salir"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/salir"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/eliminar"
-                app:layout_constraintWidth_percent="0.3"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/salir"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/salir"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/eliminar"
+            app:layout_constraintWidth_percent="0.3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

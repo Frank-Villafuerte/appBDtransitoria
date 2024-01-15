@@ -7,4 +7,12 @@
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
+
+    <!-- Paleta-->
+    <color name="p1">#DAF7A6</color>
+    <color name="p2">#FFC300</color>
+    <color name="p3">#FF5733</color>
+    <color name="p4">#C70039</color>
+    <color name="p5">#900C3F </color>
+    <color name="p6">#581845</color>
 </resources>
