@@ -20,6 +20,8 @@ import com.example.myapplication.clases.Empresa;
 import com.example.myapplication.activity.ListaDatos;
 
 import com.example.myapplication.R;
+import com.example.myapplication.gestorBD.DataBase;
+import com.example.myapplication.gestorBD.DatabaseSingleton;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -36,6 +38,11 @@ public class Lista extends Fragment {
     private Bundle bundle;
     private Bundle enviar;
     private String datos;
+    //database
+    DatabaseSingleton databaseSingleton;
+    DataBase dataBase;
+    List<Empresa> nuevos;
+
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -69,6 +76,8 @@ public class Lista extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_lista, container, false);
+        databaseSingleton=DatabaseSingleton.getInstance(requireContext());
+        dataBase=databaseSingleton.getDatabaseHelper();
         if (savedInstanceState != null) {
             datos = savedInstanceState.getString("info");
             Log.d("log", "datos "+datos.length());
@@ -91,6 +100,10 @@ public class Lista extends Fragment {
             iniciarDatos();
         } catch (JSONException e) {
             throw new RuntimeException(e);
+        }
+        nuevos=dataBase.getAllEmpresas();
+        for(int i =0;i< nuevos.size();i++){
+            empresas.add(nuevos.get(i));
         }
         init(view);
 
@@ -167,7 +180,7 @@ public class Lista extends Fragment {
         empresas.add(new Empresa("razon4", 123, "direccion4", "mail4", 91, "activo", "mision4", "vision4", 1234));
         empresas.add(new Empresa("razon5", 123, "direccion5", "mail5", 91, "activo", "mision5", "vision5", 1234));
 */
-        adaptador=new Adaptador(empresas,getActivity());
+        adaptador=new Adaptador(nuevos,getActivity());
         recyclerView=view.findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

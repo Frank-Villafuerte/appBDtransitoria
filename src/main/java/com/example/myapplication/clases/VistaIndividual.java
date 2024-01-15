@@ -9,8 +9,13 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.gestorBD.DataBase;
+import com.example.myapplication.gestorBD.DatabaseSingleton;
 
 public class VistaIndividual  extends RecyclerView.ViewHolder {
+
+
+
     public TextView elemento1;
     public TextView elemento2;
     public TextView elemento3;
