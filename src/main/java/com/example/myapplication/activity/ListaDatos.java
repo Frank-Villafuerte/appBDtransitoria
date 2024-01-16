@@ -22,22 +22,24 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class ListaDatos extends AppCompatActivity {
 
-    private List<Empresa> empresaList;
+    /*private List<Empresa> empresaList;
     private String url = "http://134.122.125.35/";
     String datos;
+
+    Bundle bundle;*/
     Lista fragLista;
-    Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_datos);
         fragLista=new Lista();
-        bundle=new Bundle();
-        getPost();
+        //bundle=new Bundle();
+        /*getPost();
         Log.d("log","bundle vaciopre "+bundle.isEmpty());
-        Log.d("log","bundle vacio"+bundle.isEmpty());
+        Log.d("log","bundle vacio"+bundle.isEmpty());*/
+        cargarFragment(fragLista, false,new Bundle());
     }
-    public void  getPost(){
+    /*public void  getPost(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(this.url)
                 .addConverterFactory(ScalarsConverterFactory.create())
@@ -72,7 +74,7 @@ public class ListaDatos extends AppCompatActivity {
 
 
 
-    }
+    }*/
     public void cargarFragment(Fragment fragment, boolean volver, Bundle bundle) {
         if (!bundle.isEmpty()){
             fragment.setArguments(bundle);

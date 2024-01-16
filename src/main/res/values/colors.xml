@@ -15,4 +15,12 @@
     <color name="p4">#C70039</color>
     <color name="p5">#900C3F </color>
     <color name="p6">#581845</color>
+
+    <!--Paleta2-->
+    <color name="p7">#FED65F</color>
+    <color name="p8">#FF4565</color>
+    <color name="p9">#B38A10</color>
+    <color name="p10">#5EFF7C</color>
+    <color name="p11">#5271FF </color>
+
 </resources>

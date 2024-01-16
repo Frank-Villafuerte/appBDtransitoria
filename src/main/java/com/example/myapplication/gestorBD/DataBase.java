@@ -20,9 +20,6 @@ public class DataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS empresas (codigo INTEGER PRIMARY KEY, razon TEXT,ruc INTEGER,mail TEXT, direccion TEXT, telefono INTEGER, mision TEXT, vision TEXT, status TEXT)");
-
-        sqLiteDatabase.execSQL("INSERT INTO empresas (razon ,ruc ,mail , direccion , telefono , mision , vision , status ) VALUES ('El Quijote',123,'quijote@quijote','molino',9592,'vencer gigantes','victoria','activo')");
-
     }
 
     @Override
@@ -62,6 +59,7 @@ public class DataBase extends SQLiteOpenHelper {
     }
     public void insertEmpresas(List<Empresa> empresaList) {
         SQLiteDatabase db = getWritableDatabase();
+        long result;
 
         try {
             db.beginTransaction();
@@ -69,6 +67,7 @@ public class DataBase extends SQLiteOpenHelper {
             // Itera a través de la lista de libros y los inserta en la base de datos
             for (Empresa empresa : empresaList) {
                 ContentValues values = new ContentValues();
+                values.put("codigo", empresa.getCodigo());
                 values.put("razon", empresa.getRazon());
                 values.put("ruc", empresa.getRuc());
                 values.put("mail", empresa.getMail());
@@ -77,12 +76,14 @@ public class DataBase extends SQLiteOpenHelper {
                 values.put("mision", empresa.getMision());
                 values.put("vision", empresa.getVision());
                 values.put("status", empresa.getEstado());
-                db.insert("empresas", null, values);
+                db.insertWithOnConflict("empresas", null, values, SQLiteDatabase.CONFLICT_REPLACE);
             }
+
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
             db.close();
         }
     }
+
 }

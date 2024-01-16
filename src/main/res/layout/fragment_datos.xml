@@ -9,11 +9,33 @@
     android:theme="@style/ThemeOverlay.MyApplication.FullscreenContainer"
     tools:context=".fragments.Datos">
 
-    <TextView
-        android:id="@+id/nombre"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dummy" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/razonLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/razon_label"
+            android:layout_marginEnd="8dp"
+            android:textStyle="bold"/>
+
+        <FrameLayout
+            android:id="@+id/razonContenedor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </FrameLayout>
+<!--
+        <TextView
+            android:id="@+id/nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dummy"
+            />-->
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -35,32 +57,82 @@
             app:layout_constraintWidth_percent="0.6">
 
             <TextView
+                android:id="@+id/rucLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ruc_label"
+                android:textStyle="bold"/>
+
+            <!--<TextView
                 android:id="@+id/ruc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/dummy" />
+                android:layout_marginStart="10dp"
+                android:text="@string/dummy" />-->
+            <FrameLayout
+                android:id="@+id/rucContenedor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp">
 
+            </FrameLayout>
             <TextView
+                android:id="@+id/direccionLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/direccion_label"
+                android:textStyle="bold"/>
+            <FrameLayout
+                android:id="@+id/direccionContenedor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp">
+            </FrameLayout>
+            <!--<TextView
                 android:id="@+id/direccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/dummy" />
+                android:layout_marginStart="10dp"
+                android:text="@string/dummy" />-->
 
             <TextView
+                android:id="@+id/mailLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mail_label"
+                android:textStyle="bold"/>
+            <FrameLayout
+                android:id="@+id/mailContenedor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp">
+            </FrameLayout>
+          <!--  <TextView
                 android:id="@+id/mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/dummy" />
+                android:layout_marginStart="10dp"
+                android:text="@string/dummy" />-->
 
             <TextView
+                android:id="@+id/telefonoLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/telefono_label"
+                android:textStyle="bold"/>
+            <FrameLayout
+                android:id="@+id/telefonoContenedor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp">
+            </FrameLayout>
+
+            <!--<TextView
                 android:id="@+id/telefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/dummy" />
+                android:layout_marginStart="10dp"
+                android:text="@string/dummy" />-->
 
 
         </LinearLayout>
@@ -92,6 +164,17 @@
         android:layout_height="match_parent"
         android:layout_margin="5dp">
 
+        <TextView
+            android:id="@+id/ordenLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dummy"
+            app:layout_constraintBottom_toTopOf="@+id/aceptar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
         <Button
             android:id="@+id/aceptar"
             android:layout_width="0dp"
@@ -121,12 +204,21 @@
             android:layout_marginTop="5dp"
             android:text="@string/mision"
             android:textAlignment="center"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="0.9" />
+        <FrameLayout
+            android:id="@+id/misionContenedor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mision">
+        </FrameLayout>
 
-        <TextView
+        <!--<TextView
             android:id="@+id/misionC"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -135,7 +227,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mision"
-            app:layout_constraintWidth_percent="0.9" />
+            app:layout_constraintWidth_percent="0.9" />-->
 
         <TextView
             android:id="@+id/vision"
@@ -143,13 +235,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@string/vision"
+            android:textStyle="bold"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/misionC"
+            app:layout_constraintTop_toBottomOf="@+id/misionContenedor"
             app:layout_constraintWidth_percent="0.9" />
+        <FrameLayout
+            android:id="@+id/visionContenedor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        <TextView
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vision">
+        </FrameLayout>
+        <!--<TextView
             android:id="@+id/visionC"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -159,7 +260,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vision"
-            app:layout_constraintWidth_percent="0.9" />
+            app:layout_constraintWidth_percent="0.9" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

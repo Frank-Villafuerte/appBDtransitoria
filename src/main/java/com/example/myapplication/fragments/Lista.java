@@ -35,7 +35,7 @@ public class Lista extends Fragment {
     //Bundle argumentos;
     List<Empresa> empresas;
     private RecyclerView recyclerView;
-    private Bundle bundle;
+    //private Bundle bundle;
     private Bundle enviar;
     private String datos;
     //database
@@ -88,12 +88,12 @@ public class Lista extends Fragment {
         deactivate=view.findViewById(R.id.inactivar);
         activate=view.findViewById(R.id.reactivar);
         exit=view.findViewById(R.id.salir);
-        bundle=getArguments();
+        //bundle=getArguments();
         enviar=new Bundle();
         empresas=new ArrayList<Empresa>();
-        if (bundle != null) {
+        /*if (bundle != null) {
             datos = bundle.getString("info");
-        }
+        }*/
 
 
         try {
@@ -111,15 +111,20 @@ public class Lista extends Fragment {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                enviar.putString("orden","Agregar");
                 ((ListaDatos) requireActivity()).cargarFragment(new Datos(),true,enviar);
             }
         });
         modify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Llamar al método en la Activity para cambiar el Fragment
-                ((ListaDatos) requireActivity()).cargarFragment(new Datos(),true,enviar);
+                if(adaptador.getSelected()!=null){
+                    enviar.putSerializable("empresa", adaptador.getSelected());
+                    enviar.putString("orden","Modificar");
+                    ((ListaDatos) requireActivity()).cargarFragment(new Datos(),true,enviar);
+                }else{
+                    Toast.makeText(getActivity(), "Ningun elemento seleccionado", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         erase.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +132,7 @@ public class Lista extends Fragment {
             public void onClick(View v) {
                 if(adaptador.getSelected()!=null){
                     enviar.putSerializable("empresa", adaptador.getSelected());
+                    enviar.putString("orden","Eliminar");
                     ((ListaDatos) requireActivity()).cargarFragment(new Datos(),true,enviar);
                 }else{
                     Toast.makeText(getActivity(), "Ningun elemento seleccionado", Toast.LENGTH_SHORT).show();
@@ -137,10 +143,11 @@ public class Lista extends Fragment {
         deactivate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (adaptador.getSelected() != null) {
+                if(adaptador.getSelected()!=null){
                     enviar.putSerializable("empresa", adaptador.getSelected());
-                    ((ListaDatos) requireActivity()).cargarFragment(new Datos(), true, enviar);
-                } else {
+                    enviar.putString("orden","Desactivar");
+                    ((ListaDatos) requireActivity()).cargarFragment(new Datos(),true,enviar);
+                }else{
                     Toast.makeText(getActivity(), "Ningun elemento seleccionado", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -148,10 +155,11 @@ public class Lista extends Fragment {
         activate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (adaptador.getSelected() != null) {
+                if(adaptador.getSelected()!=null){
                     enviar.putSerializable("empresa", adaptador.getSelected());
-                    ((ListaDatos) requireActivity()).cargarFragment(new Datos(), true, enviar);
-                } else {
+                    enviar.putString("orden","Reactivar");
+                    ((ListaDatos) requireActivity()).cargarFragment(new Datos(),true,enviar);
+                }else{
                     Toast.makeText(getActivity(), "Ningun elemento seleccionado", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -159,12 +167,7 @@ public class Lista extends Fragment {
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (adaptador.getSelected() != null) {
-                    enviar.putSerializable("empresa", adaptador.getSelected());
-                    ((ListaDatos) requireActivity()).cargarFragment(new Datos(), true, enviar);
-                } else {
-                    Toast.makeText(getActivity(), "Ningun elemento seleccionado", Toast.LENGTH_SHORT).show();
-                }
+                ((ListaDatos) requireActivity()).onBackPressed();
             }
         });
         return view;
@@ -188,11 +191,11 @@ public class Lista extends Fragment {
 
 
     }
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
+    //@Override
+   /*public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("info", datos);
-    }
+    }*/
     public void iniciarDatos() throws JSONException {
         //JSONArray jsonArray = new JSONArray(new JSONTokener(datos));
         ObjectMapper objectMapper = new ObjectMapper();

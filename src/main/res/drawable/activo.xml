@@ -4,6 +4,14 @@
     android:viewportWidth="24.0"
     android:viewportHeight="24.0">
     <group
+        android:strokeWidth="1"
+        android:strokeColor="#000000">
+
+        <path
+            android:fillColor="@color/p7"
+            android:pathData="M2,2 L22,2 L22,22 L2,22 Z"/> <!-- Coordenadas del cuadrado -->
+    </group>
+    <group
         android:name="rotationGroup"
         android:pivotX="10.0"
         android:pivotY="10.0"
@@ -11,8 +19,8 @@
         >
         <path
             android:name="vect"
-            android:fillColor="#30E500"
-            android:pathData="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41,-1.41L9,16.17z"
+            android:fillColor="@color/p10"
+            android:pathData="M9,16.17 L4.83,12l-1.42,1.41 L9,19 21,7l-1.41,-1.41L9,16.17z"
             />
 
     </group>

@@ -1,0 +1,35 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="24dp"
+    android:width="24dp"
+    android:viewportWidth="24.0"
+    android:viewportHeight="24.0">
+    <group
+        android:strokeWidth="1"
+    android:strokeColor="#000000">
+
+    <path
+        android:fillColor="@color/p7"
+        android:pathData="M2,2 L22,2 L22,22 L2,22 Z"/> <!-- Coordenadas del cuadrado -->
+</group>
+    <group
+        android:name="rotationGroup"
+        android:pivotX="10.0"
+        android:pivotY="10.0"
+        android:rotation="0.0">
+        <path
+            android:name="vect"
+            android:fillColor="@color/p11"
+            android:pathData="M4.2,10.2 l3.6,0 l0,3.6 l-3.6,0 l0,-3.6 z
+M10.2,10.2 l3.6,0 l0,3.6 l-3.6,0 l0,-3.6 z
+M16.2,10.2 l3.6,0 l0,3.6 l-3.6,0 l0,-3.6" />
+       <!-- <path
+            android:name="vect"
+            android:fillColor="#EE0606"
+            android:pathData="M50,40 L5,19 L19,19 L19,5 Z" />
+-->
+    </group>
+</vector>
+
+
+
+

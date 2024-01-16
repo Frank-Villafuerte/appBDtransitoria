@@ -12,6 +12,9 @@
     <string name="codigo_label">Código</string>
     <string name="ruc_label">RUC</string>
     <string name="razon_label">Razón Social</string>
+    <string name="direccion_label">Direccion</string>
+    <string name="mail_label">e-mail</string>
+    <string name="telefono_label">Teléfono</string>
 
     //fragment datos
     <string name="dummy">Dummy</string>
@@ -23,6 +26,11 @@
     <string name="vision">VISION</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    //Estados
+    <string name="activo">Activo</string>
+    <string name="inactivo">Inactivo</string>
+    <string name="eliminado">Eliminado</string>
+
 
 
 </resources>
