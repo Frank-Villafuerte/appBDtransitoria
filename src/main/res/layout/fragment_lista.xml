@@ -8,14 +8,43 @@
     tools:context=".fragments.Lista">
 
 
+    <SearchView
+        android:id="@+id/busqueda"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.6">
+
+    </SearchView>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="23dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@android:drawable/btn_star"
+        tools:layout_editor_absoluteX="247dp" />
+
+    <Spinner
+        android:id="@+id/seleccion"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/busqueda"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.4">
+    </Spinner>
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/labelsLista"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/recycler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/busqueda"
         app:layout_constraintWidth_percent="1.0">
 
         <TextView
@@ -69,10 +98,10 @@
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.8"
+        app:layout_constraintHeight_percent="0.7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="1" />
+        app:layout_constraintTop_toBottomOf="@id/labelsLista"
+        app:layout_constraintWidth_percent="1"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

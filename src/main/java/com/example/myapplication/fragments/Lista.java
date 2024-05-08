@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.SearchView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.myapplication.clases.Adaptador;
@@ -42,6 +44,8 @@ public class Lista extends Fragment {
     DatabaseSingleton databaseSingleton;
     DataBase dataBase;
     List<Empresa> nuevos;
+    Spinner seleccion;
+    SearchView buscador;
 
 
     private static final String ARG_PARAM1 = "param1";
@@ -88,6 +92,8 @@ public class Lista extends Fragment {
         deactivate=view.findViewById(R.id.inactivar);
         activate=view.findViewById(R.id.reactivar);
         exit=view.findViewById(R.id.salir);
+        buscador=view.findViewById(R.id.busqueda);
+        seleccion=view.findViewById(R.id.seleccion);
         //bundle=getArguments();
         enviar=new Bundle();
         empresas=new ArrayList<Empresa>();

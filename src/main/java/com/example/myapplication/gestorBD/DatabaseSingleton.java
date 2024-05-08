@@ -7,10 +7,15 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.myapplication.clases.Empresa;
+import com.example.myapplication.clases.MaeCliente;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseSingleton {
     private static DatabaseSingleton instance;
     private DataBase dbHelper;
+    private List<MaeCliente> listaMaeCliente=new ArrayList<MaeCliente>();
 
     private DatabaseSingleton(Context context) {
         dbHelper = new DataBase(context);
@@ -25,6 +30,20 @@ public class DatabaseSingleton {
 
     public DataBase getDatabaseHelper() {
         return dbHelper;
+    }
+    public  List<MaeCliente> getListaMaeCliente(){
+        return listaMaeCliente;
+    }
+    public void agregarDato(MaeCliente maeCliente){
+        listaMaeCliente.add(maeCliente);
+        //peticion http para post mae cliente
+    }
+    public void eliminarDato(MaeCliente maeCliente, int position){
+        listaMaeCliente.get(position);  
+        //peticion para delete
+    }
+    public void modificarDato(){
+
     }
 
     public void agregarDato(Empresa empresa1) {
